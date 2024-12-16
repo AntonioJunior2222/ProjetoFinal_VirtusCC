@@ -1,6 +1,10 @@
 # Projeto Sistemas Embarcados VIRTUS-CC
 
-Este documento descreve as funções implementadas no projeto para a integração de sensores e controle de dispositivos utilizando uma MCU STM32 e os periféricos associados.
+Este documento apresenta as funcionalidades desenvolvidas no projeto de integração de sensores e controle de dispositivos, utilizando uma MCU STM32 e diversos periféricos associados. Realizado durante a capacitação de Sistemas Embarcados no VIRTUS-CC, em Campina Grande, o projeto foi concebido para simular o controle e monitoramento de uma cabine de avião.
+
+O principal objetivo é coletar dados críticos de voo, como aceleração, orientação e altitude, utilizando sensores como o MPU6050 (giroscópio e acelerômetro) e o BMP280 (pressão e temperatura). Além disso, o sistema inclui um aviso sonoro e visual que simula a proximidade com a pista durante a aterrissagem, empregando um sensor ultrassônico para medir distâncias.
+
+Complementarmente, o projeto integra um display OLED para exibição das informações de voo em tempo real, bem como o controle de um servo motor para replicar a movimentação de componentes da cabine. Por meio dessa estrutura, o sistema oferece uma experiência imersiva de simulação, destacando aplicações práticas de tecnologias embarcadas na aviação.
 
 ## Requerimentos para o projeto
 
@@ -31,73 +35,9 @@ Este documento descreve as funções implementadas no projeto para a integraçã
 - **Botões 1 e 2**
   - GPIO PIN PA1 e PA4
 
-## Funções Implementadas no `main.c`
 
-### `void modules_init(void)`
 
-**Descrição**:\
-Inicializa os módulos utilizados no projeto, incluindo sensores (MPU6050, BMP280, ultrassônico), display OLED e atuadores (servo motor e buzzer).
-
-**Por que é feito**:\
-Essa função é responsável por garantir que todos os módulos estejam configurados e prontos para uso.
-
----
-
-### `void lcd_write_mpu(void)`
-
-**Descrição**:\
-Exibe no display OLED os dados lidos do MPU6050, como ângulos calculados e acelerações nos eixos X, Y e Z.
-
-**Por que é feito**:\
-Permite visualizar as informações de orientação e movimento em tempo real.
-
----
-
-### `void lcd_write_bmp(void)`
-
-**Descrição**:\
-Exibe no display OLED os dados do sensor BMP280, como pressão, temperatura e altitude calculada.
-
-**Por que é feito**:\
-Fornece informações ambientais em tempo real no display.
-
----
-
-### `void HCSR04_Read(void)`
-
-**Descrição**:\
-Realiza a leitura do sensor ultrassônico HCSR04, calculando a distância até o objeto mais próximo.
-
-**Por que é feito**:\
-Para integrar medidas de distância no controle de atuadores, como o buzzer.
-
----
-
-### `void servo_motor(uint16_t step)`
-
-**Descrição**:\
-Controla o ângulo do servo motor ajustando o sinal PWM.
-
-**Parâmetros**:
-- `step` - Valor de duty cycle do PWM, correspondente ao ângulo desejado.
-
-**Por que é feito**:\
-Movimenta o servo motor para posições específicas com base nos dados de sensores.
-
----
-
-### `void buzzer(uint16_t duty)`
-
-**Descrição**:\
-Ajusta a intensidade do buzzer proporcionalmente à distância medida pelo HCSR04.
-
-**Parâmetros**:
-- `duty` - Intensidade do sinal PWM para o buzzer.
-
-**Por que é feito**:\
-Alerta o usuário de objetos próximos com intensidade variável.
-
-## Funções Implementadas no `mpu6050.c`
+## Funções Implementadas para o `MPU6050`
 
 ### `uint8_t MPU6050_Init(I2C_HandleTypeDef *hi2c)`
 
@@ -175,7 +115,7 @@ Calcula um ângulo suavizado com base em leituras de sensores e um filtro de Kal
 **Por que é feito**:\
 Reduz ruídos nas medições de ângulos, garantindo maior precisão nos cálculos de orientação.
 
-## Funções Implementadas no `bmp280.h`
+## Funções Implementadas no `BMP280`
 
 ### `void bmp280_init_default_params(bmp280_params_t *params)`
 
@@ -302,6 +242,79 @@ Inicia a rolagem horizontal para a direita em linhas específicas.
 **Por que é feito**:\
 Permite criar efeitos visuais ou destacar informações na tela.
 
+# Funções Implementadas no `main.c`
+
+### `void modules_init(void)`
+
+**Descrição**:\
+Inicializa os módulos utilizados no projeto, incluindo sensores (MPU6050, BMP280, ultrassônico), display OLED e atuadores (servo motor e buzzer).
+
+**Por que é feito**:\
+Essa função é responsável por garantir que todos os módulos estejam configurados e prontos para uso.
+
+---
+
+### `void lcd_write_mpu(void)`
+
+**Descrição**:\
+Exibe no display OLED os dados lidos do MPU6050, como ângulos calculados e acelerações nos eixos X, Y e Z.
+
+**Por que é feito**:\
+Permite visualizar as informações de orientação e movimento em tempo real.
+
+---
+
+### `void lcd_write_bmp(void)`
+
+**Descrição**:\
+Exibe no display OLED os dados do sensor BMP280, como pressão, temperatura e altitude calculada.
+
+**Por que é feito**:\
+Fornece informações ambientais em tempo real no display.
+
+---
+
+### `void HCSR04_Read(void)`
+
+**Descrição**:\
+Realiza a leitura do sensor ultrassônico HCSR04, calculando a distância até o objeto mais próximo.
+
+**Por que é feito**:\
+Para integrar medidas de distância no controle de atuadores, como o buzzer.
+
+---
+
+### `void servo_motor(uint16_t step)`
+
+**Descrição**:\
+Controla o ângulo do servo motor ajustando o sinal PWM.
+
+**Parâmetros**:
+- `step` - Valor de duty cycle do PWM, correspondente ao ângulo desejado.
+
+**Por que é feito**:\
+Movimenta o servo motor para posições específicas com base nos dados de sensores.
+
+---
+
+### `void buzzer(uint16_t duty)`
+
+**Descrição**:\
+Ajusta a intensidade do buzzer proporcionalmente à distância medida pelo HCSR04.
+
+**Parâmetros**:
+- `duty` - Intensidade do sinal PWM para o buzzer.
+
+**Por que é feito**:\
+Alerta o usuário de objetos próximos com intensidade variável.
+
+## Conclusão
+
+O projeto de integração de sensores e controle de dispositivos para simulação de uma cabine de avião foi uma experiência enriquecedora. A conexão e configuração de dispositivos como o MPU6050, BMP280, HCSR04, servo motor, buzzer e display OLED exigiram atenção aos detalhes e uma abordagem cuidadosa para garantir a interação eficiente entre eles.
+
+Apesar dos obstáculos encontrados ao longo do desenvolvimento, a implementação do sistema foi bastante satisfatória. Ver os componentes funcionando de maneira integrada, proporcionando uma experiência imersiva de monitoramento de voo, comprovou a eficácia da abordagem adotada. O projeto não só solidificou o conhecimento sobre sistemas embarcados, mas também destacou a importância da precisão na integração de sensores em sistemas complexos e funcionais.
+
+Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de tecnologias embarcadas e sua relevância em simulações e sistemas críticos, como os encontrados na aviação.
 
 ## Esquemático
 ![Esquemático](images/Esquematico.png)
