@@ -168,6 +168,9 @@ Reduz ruídos nas medições de ângulos, garantindo maior precisão nos cálcul
 
 Este projeto integra sensores diversos e controla dispositivos atuadores para aplicações embarcadas. O `main.c` gerencia o fluxo principal, enquanto o `mpu6050.c` implementa a comunicação com o sensor de movimento. Essa estrutura modular permite fácil expansão e reutilização em outras aplicações.
 
+## Esquemático
+![Esquemático](images/Esquematico.png)
+
 ## Autores
 
 - [Antonio Roberto](https://github.com/antoniojunior2222)
