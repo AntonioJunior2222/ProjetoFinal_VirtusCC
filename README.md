@@ -174,5 +174,5 @@ Este projeto integra sensores diversos e controla dispositivos atuadores para ap
 ## Autores
 
 - [Antonio Roberto](https://github.com/antoniojunior2222)
-- [Aryelson Gonçalves](https://github.com/aryelson1)
+- [Ismael Marinho](https://github.com/smalljooj)
 
