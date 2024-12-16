@@ -2,6 +2,17 @@
 
 Este documento descreve as funções implementadas no projeto para a integração de sensores e controle de dispositivos utilizando uma MCU STM32 e os periféricos associados.
 
+## Requerimentos para o projeto
+
+- 1x STM32 F446RE
+- 1x Giroscópio/Acelerômetro MPU6050
+- 1x Temperatura/Pressão BMP280
+- 1x Sensor Ultrassônico HCSR04
+- 1x Servo Motor SG-90
+- 1x Buzzer
+- 1x Display Oled HS96L03W2C03
+- 2x Botão
+
 ## Portas utilizadas na STM32 pelos sensores e atuadores
 
 - **MPU6050 (I2C)**
@@ -164,9 +175,133 @@ Calcula um ângulo suavizado com base em leituras de sensores e um filtro de Kal
 **Por que é feito**:\
 Reduz ruídos nas medições de ângulos, garantindo maior precisão nos cálculos de orientação.
 
-## Conclusão
+## Funções Implementadas no `bmp280.h`
 
-Este projeto integra sensores diversos e controla dispositivos atuadores para aplicações embarcadas. O `main.c` gerencia o fluxo principal, enquanto o `mpu6050.c` implementa a comunicação com o sensor de movimento. Essa estrutura modular permite fácil expansão e reutilização em outras aplicações.
+### `void bmp280_init_default_params(bmp280_params_t *params)`
+
+**Descrição**:\
+Inicializa a estrutura de parâmetros com valores padrão para o BMP280.
+
+**Por que é feito**:\
+Simplifica a configuração inicial do sensor, garantindo operação consistente.
+
+---
+
+### `bool bmp280_init(BMP280_HandleTypedef *dev, bmp280_params_t *params)`
+
+**Descrição**:\
+Inicializa o sensor BMP280, configura os registradores e lê as constantes de calibração.
+
+**Parâmetros**:
+- `dev` - Estrutura do dispositivo contendo informações do sensor.
+- `params` - Estrutura com os parâmetros de configuração.
+
+**Retorno**:
+- `true` - Inicialização bem-sucedida.
+- `false` - Falha na inicialização.
+
+**Por que é feito**:\
+Garante que o sensor esteja configurado corretamente antes das leituras.
+
+---
+
+### `bool bmp280_read_float(BMP280_HandleTypedef *dev, float *temperature, float *pressure, float *humidity, float *altitude)`
+
+**Descrição**:\
+Lê os dados de temperatura, pressão, umidade (opcional) e altitude calculada.
+
+**Parâmetros**:
+- `dev` - Estrutura do dispositivo contendo informações do sensor.
+- `temperature` - Ponteiro para armazenar a temperatura lida.
+- `pressure` - Ponteiro para armazenar a pressão lida.
+- `humidity` - Ponteiro para armazenar a umidade lida (apenas BME280).
+- `altitude` - Ponteiro para armazenar a altitude calculada.
+
+**Retorno**:
+- `true` - Leitura bem-sucedida.
+- `false` - Falha na leitura.
+
+**Por que é feito**:\
+Fornece dados ambientais precisos para análise em tempo real.
+
+## Funções Relacionadas ao Display OLED
+
+### `uint8_t SSD1306_Init(void)`
+
+**Descrição**:\
+Inicializa o display OLED SSD1306 e verifica se está pronto para uso.
+
+**Retorno**:
+- `0` - O display não foi detectado.
+- `> 0` - O display foi inicializado corretamente.
+
+**Por que é feito**:\
+Garante que o display esteja configurado para exibição de dados.
+
+---
+
+### `void SSD1306_UpdateScreen(void)`
+
+**Descrição**:\
+Atualiza o buffer interno para refletir as mudanças na tela do display.
+
+**Por que é feito**:\
+Aplica as alterações feitas no conteúdo da tela em tempo real.
+
+---
+
+### `void SSD1306_DrawPixel(uint16_t x, uint16_t y, SSD1306_COLOR_t color)`
+
+**Descrição**:\
+Desenha um pixel na posição especificada.
+
+**Parâmetros**:
+- `x` - Coordenada X (0 a SSD1306_WIDTH - 1).
+- `y` - Coordenada Y (0 a SSD1306_HEIGHT - 1).
+- `color` - Cor do pixel (preto ou branco).
+
+**Por que é feito**:\
+Permite a criação de gráficos e desenhos personalizados na tela.
+
+---
+
+### `void SSD1306_DrawBitmap(int16_t x, int16_t y, const unsigned char* bitmap, int16_t w, int16_t h, uint16_t color)`
+
+**Descrição**:\
+Desenha um bitmap na posição especificada.
+
+**Parâmetros**:
+- `x`, `y` - Coordenadas iniciais.
+- `bitmap` - Ponteiro para os dados do bitmap.
+- `w`, `h` - Largura e altura do bitmap.
+- `color` - Cor do desenho.
+
+**Por que é feito**:\
+Facilita a exibição de imagens ou logos personalizados.
+
+---
+
+### `void SSD1306_Clear(void)`
+
+**Descrição**:\
+Limpa todo o conteúdo exibido no display.
+
+**Por que é feito**:\
+Garante que a tela esteja vazia antes de novas exibições.
+
+---
+
+### `void SSD1306_ScrollRight(uint8_t start_row, uint8_t end_row)`
+
+**Descrição**:\
+Inicia a rolagem horizontal para a direita em linhas específicas.
+
+**Parâmetros**:
+- `start_row`, `end_row` - Linhas onde a rolagem será aplicada.
+
+**Por que é feito**:\
+Permite criar efeitos visuais ou destacar informações na tela.
+
 
 ## Esquemático
 ![Esquemático](images/Esquematico.png)
@@ -175,4 +310,3 @@ Este projeto integra sensores diversos e controla dispositivos atuadores para ap
 
 - [Antonio Roberto](https://github.com/antoniojunior2222)
 - [Ismael Marinho](https://github.com/smalljooj)
-
