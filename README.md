@@ -1,16 +1,33 @@
 # Projeto Sistemas Embarcados VIRTUS-CC - Centro de Competência EMBRAPII VIRTUS em Hardware Inteligente para Indústria  
 ![VirtusCC](images/VirtusCC.png)
 
+## Autores
+
+- [Antonio Roberto](https://github.com/antoniojunior2222)
+- [Ismael Marinho](https://github.com/smalljooj)
+
 Este documento apresenta as funcionalidades desenvolvidas no projeto de integração de sensores e controle de dispositivos, utilizando uma MCU STM32 e diversos periféricos associados. Realizado durante a capacitação de Sistemas Embarcados no VIRTUS-CC, em Campina Grande, o projeto foi concebido para simular o controle e monitoramento de uma cabine de avião.
 
 O principal objetivo é coletar dados críticos de voo, como aceleração, orientação e altitude, utilizando sensores como o MPU6050 (giroscópio e acelerômetro) e o BMP280 (pressão e temperatura). Além disso, o sistema inclui um aviso sonoro e visual que simula a proximidade com a pista durante a aterrissagem, empregando um sensor ultrassônico para medir distâncias.
 
 Complementarmente, o projeto integra um display OLED para exibição das informações de voo em tempo real, bem como o controle de um servo motor para replicar a movimentação de componentes da cabine. Por meio dessa estrutura, o sistema oferece uma experiência imersiva de simulação, destacando aplicações práticas de tecnologias embarcadas na aviação.
 
+- [Montagem do Projeto](#Montagem-do-Projeto)
+- [Funções Implementadas com bibliotecas](#Habilitando-o-Clock-do-GPIO)
+  - [MPU6050](#MPU6050)
+  - [BMP280](#Habilitando-o-Clock-do-GPIO)
+  - [BMP280](#Habilitando-o-Clock-do-GPIO)
+  - [Display OLED HS96L03W2C03](#Display-OLED-HS96L03W2C03)
+- [Funções Implementadas no main.c](#Funções-Implementadas-no-main.c)
+- [Esquemático](#Esquemático)
+- [Instruções](#Instruções)
+- [Conclusão](#Conclusão)
+
+
 ## Montagem do Projeto
 ![Montagem](images/Montagem.jpg)
 
-## Requerimentos para o projeto
+### Requerimentos para o projeto
 
 - 1x STM32 F446RE
 - 1x Giroscópio/Acelerômetro MPU6050
@@ -21,7 +38,7 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 - 1x Display Oled HS96L03W2C03
 - 2x Botão
 
-## Portas utilizadas na STM32 pelos sensores e atuadores
+### Portas utilizadas na STM32 pelos sensores e atuadores
 
 - **MPU6050 (I2C)**
   - SDA - GPIO PIN PB9
@@ -44,9 +61,10 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 
 
 
-## Funções Implementadas para o `MPU6050`
+## Funções Implementadas 
 
-### MPU em atividade
+### `MPU6050`
+
 ![MPU](images/MPU2.jpg)
 
 ### `uint8_t MPU6050_Init(I2C_HandleTypeDef *hi2c)`
@@ -125,9 +143,8 @@ Calcula um ângulo suavizado com base em leituras de sensores e um filtro de Kal
 **Por que é feito**:\
 Reduz ruídos nas medições de ângulos, garantindo maior precisão nos cálculos de orientação.
 
-## Funções Implementadas no `BMP280`
+### `BMP280`
 
-### BMP em Atividade
 ![BMP](images/Imagem3.jpeg)
 
 ### `void bmp280_init_default_params(bmp280_params_t *params)`
@@ -177,7 +194,7 @@ Lê os dados de temperatura, pressão, umidade (opcional) e altitude calculada.
 **Por que é feito**:\
 Fornece dados ambientais precisos para análise em tempo real.
 
-## Funções Relacionadas ao Display OLED
+### Display OLED HS96L03W2C03
 
 ### `uint8_t SSD1306_Init(void)`
 
@@ -340,10 +357,6 @@ Apesar dos obstáculos encontrados ao longo do desenvolvimento, a implementaçã
 
 Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de tecnologias embarcadas e sua relevância em simulações e sistemas críticos, como os encontrados na aviação.
 
-## Autores
-
-- [Antonio Roberto](https://github.com/antoniojunior2222)
-- [Ismael Marinho](https://github.com/smalljooj)
 
 ## Fontes
 
