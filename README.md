@@ -60,7 +60,7 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 
 
 
-#Funções Implementadas com bibliotecas
+# Funções Implementadas com bibliotecas
 
 ## `MPU6050`
 
