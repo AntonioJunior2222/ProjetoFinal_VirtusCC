@@ -24,11 +24,11 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 ## Portas utilizadas na STM32 pelos sensores e atuadores
 
 - **MPU6050 (I2C)**
-  - SDA - GPIO PIN PB7
-  - SCL - GPIO PIN PB6
+  - SDA - GPIO PIN PB9
+  - SCL - GPIO PIN PB8
 - **BMP280 (I2C)**
-  - SDA - GPIO PIN PB7
-  - SCL - GPIO PIN PB6
+  - SDA - GPIO PIN PB9
+  - SCL - GPIO PIN PB8
 - **Ultrassônico HCSR04**
   - TRIG - GPIO PIN PA6
   - ECHO - GPIO PIN PA7
