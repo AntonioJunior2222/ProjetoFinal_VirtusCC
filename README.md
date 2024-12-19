@@ -338,3 +338,11 @@ Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de 
 
 - [Antonio Roberto](https://github.com/antoniojunior2222)
 - [Ismael Marinho](https://github.com/smalljooj)
+
+## Fontes
+
+- [Ciastkolog](https://github.com/ciastkolog/BMP280_STM32) BMP280
+- [Bulanov Konstantin](https://github.com/leech001/MPU6050) MPU6050
+- [Alexander Lutsai](https://github.com/SL-RU/stm32libs/tree/master) Display OLED
+
+Agradecemos aos autores das bibliotecas acima e por fim esperamos deixar nossas contribuições com o uso de nossos prórpios códigos para o Buzzer, Servo, Interrupções nos botões, o uso do potênciometro para o ADC e por fim a integração dos sensores e atuadores na plataforma.
