@@ -44,7 +44,7 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 ## Funções Implementadas para o `MPU6050`
 
 ### MPU em atividade
-![MPU](images/MPU.jpeg)
+![MPU](images/MPU2.jpeg)
 
 ### `uint8_t MPU6050_Init(I2C_HandleTypeDef *hi2c)`
 
