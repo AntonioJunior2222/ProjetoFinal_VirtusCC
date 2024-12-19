@@ -330,7 +330,7 @@ Ao iniciar o projeto, o display exibirá os dados do sensor BMP280, como mostrad
 O potenciômetro e o servo motor trabalham em conjunto com o BMP280. O potenciômetro pode ser usado para ajustar a temperatura da cabine, enquanto o servo motor é responsável por simular a pressurização. Para efeitos de simulação, o botão conectado à porta PA4 reduz a pressão lida pelo BMP280, acionando o servo motor para pressurizar a cabine proporcionalmente à nova condição.
 
 ## Video Demonstrativo
-A adicionar.
+[Video no Youtube](https://youtu.be/U5_P-1-gJD8)
 
 ## Conclusão
 
