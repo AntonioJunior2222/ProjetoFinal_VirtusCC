@@ -17,7 +17,7 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
   - [MPU6050](#MPU6050)
   - [BMP280](#BMP280)
   - [Display OLED HS96L03W2C03](#Display-OLED-HS96L03W2C03)
-- [Funções Implementadas no main.c](#Funções-Implementadas-no-main.c)
+- [Funções Implementadas no main](#Funções-Implementadas-no-main)
 - [Esquemático](#Esquemático)
 - [Instruções](#Instruções)
 - [Conclusão](#Conclusão)
@@ -273,7 +273,7 @@ Inicia a rolagem horizontal para a direita em linhas específicas.
 **Por que é feito**:\
 Permite criar efeitos visuais ou destacar informações na tela.
 
-# Funções Implementadas no main.c
+# Funções Implementadas no main
 
 ### `void modules_init(void)`
 
