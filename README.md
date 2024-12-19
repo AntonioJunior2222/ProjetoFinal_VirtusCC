@@ -345,4 +345,4 @@ Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de 
 - [Bulanov Konstantin](https://github.com/leech001/MPU6050) MPU6050
 - [Alexander Lutsai](https://github.com/SL-RU/stm32libs/tree/master) Display OLED
 
-Agradecemos aos autores das bibliotecas acima e por fim esperamos deixar nossas contribuições com o uso de nossos prórpios códigos para o Buzzer, Servo, Interrupções nos botões, o uso do potênciometro para o ADC e por fim a integração dos sensores e atuadores na plataforma STM32 F4.
+Gostaríamos de expressar nossa gratidão aos autores das bibliotecas utilizadas neste projeto, cuja contribuição foi essencial para o seu desenvolvimento. Além disso, esperamos deixar nossa própria marca com as implementações realizadas, incluindo o controle do buzzer, do servo motor, das interrupções nos botões, o uso do potenciômetro com o ADC e, por fim, a integração de sensores e atuadores na plataforma STM32 F4.
