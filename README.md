@@ -1,5 +1,7 @@
 # Projeto Sistemas Embarcados VIRTUS-CC - Centro de Competência EMBRAPII VIRTUS em Hardware Inteligente para Indústria  
-![VirtusCC](images/VirtusCC.png)
+<p align="center">
+  <img src="images/VirtusCC.png" />
+</p>
 
 ## Autores
 
