@@ -1,4 +1,4 @@
-# Projeto Sistemas Embarcados VIRTUS-CC
+# Projeto Sistemas Embarcados VIRTUS-CC - Centro de Competência EMBRAPII VIRTUS em Hardware Inteligente para Indústria
 
 Este documento apresenta as funcionalidades desenvolvidas no projeto de integração de sensores e controle de dispositivos, utilizando uma MCU STM32 e diversos periféricos associados. Realizado durante a capacitação de Sistemas Embarcados no VIRTUS-CC, em Campina Grande, o projeto foi concebido para simular o controle e monitoramento de uma cabine de avião.
 
