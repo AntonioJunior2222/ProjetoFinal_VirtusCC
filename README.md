@@ -1,10 +1,14 @@
-# Projeto Sistemas Embarcados VIRTUS-CC - Centro de Competência EMBRAPII VIRTUS em Hardware Inteligente para Indústria
+# Projeto Sistemas Embarcados VIRTUS-CC - Centro de Competência EMBRAPII VIRTUS em Hardware Inteligente para Indústria  
+![VirtusCC](images/VirtusCC.png)
 
 Este documento apresenta as funcionalidades desenvolvidas no projeto de integração de sensores e controle de dispositivos, utilizando uma MCU STM32 e diversos periféricos associados. Realizado durante a capacitação de Sistemas Embarcados no VIRTUS-CC, em Campina Grande, o projeto foi concebido para simular o controle e monitoramento de uma cabine de avião.
 
 O principal objetivo é coletar dados críticos de voo, como aceleração, orientação e altitude, utilizando sensores como o MPU6050 (giroscópio e acelerômetro) e o BMP280 (pressão e temperatura). Além disso, o sistema inclui um aviso sonoro e visual que simula a proximidade com a pista durante a aterrissagem, empregando um sensor ultrassônico para medir distâncias.
 
 Complementarmente, o projeto integra um display OLED para exibição das informações de voo em tempo real, bem como o controle de um servo motor para replicar a movimentação de componentes da cabine. Por meio dessa estrutura, o sistema oferece uma experiência imersiva de simulação, destacando aplicações práticas de tecnologias embarcadas na aviação.
+
+## Montagem do Projeto
+![Montagem](images/Montagem.jpg)
 
 ## Requerimentos para o projeto
 
@@ -116,6 +120,9 @@ Calcula um ângulo suavizado com base em leituras de sensores e um filtro de Kal
 Reduz ruídos nas medições de ângulos, garantindo maior precisão nos cálculos de orientação.
 
 ## Funções Implementadas no `BMP280`
+
+### BMP em Atividade
+![BMP](images/Imagem3.jpeg)
 
 ### `void bmp280_init_default_params(bmp280_params_t *params)`
 
@@ -318,6 +325,11 @@ Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de 
 
 ## Esquemático
 ![Esquemático](images/Esquematico.png)
+
+## Instruções
+Ao iniciar o projeto, o display exibirá os dados do sensor BMP280, como mostrado na imagem de referência. Para visualizar as informações do sensor MPU6050, pressione o botão 1, conectado à porta PA1. O display será atualizado para exibir os novos dados, permitindo que você observe, em tempo real, as alterações nos valores do giroscópio e acelerômetro ao movimentar o projeto.
+
+O potenciômetro e o servo motor trabalham em conjunto com o BMP280. O potenciômetro pode ser usado para ajustar a temperatura da cabine, enquanto o servo motor é responsável por simular a pressurização. Para efeitos de simulação, o botão conectado à porta PA4 reduz a pressão lida pelo BMP280, acionando o servo motor para pressurizar a cabine proporcionalmente à nova condição.
 
 ## Autores
 
