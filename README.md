@@ -13,10 +13,9 @@ O principal objetivo é coletar dados críticos de voo, como aceleração, orien
 Complementarmente, o projeto integra um display OLED para exibição das informações de voo em tempo real, bem como o controle de um servo motor para replicar a movimentação de componentes da cabine. Por meio dessa estrutura, o sistema oferece uma experiência imersiva de simulação, destacando aplicações práticas de tecnologias embarcadas na aviação.
 
 - [Montagem do Projeto](#Montagem-do-Projeto)
-- [Funções Implementadas com bibliotecas](#Habilitando-o-Clock-do-GPIO)
+- [Funções Implementadas com bibliotecas](#Funções-Implementadas-com-bibliotecas)
   - [MPU6050](#MPU6050)
-  - [BMP280](#Habilitando-o-Clock-do-GPIO)
-  - [BMP280](#Habilitando-o-Clock-do-GPIO)
+  - [BMP280](#BMP280)
   - [Display OLED HS96L03W2C03](#Display-OLED-HS96L03W2C03)
 - [Funções Implementadas no main.c](#Funções-Implementadas-no-main.c)
 - [Esquemático](#Esquemático)
@@ -24,7 +23,7 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 - [Conclusão](#Conclusão)
 
 
-## Montagem do Projeto
+# Montagem do Projeto
 ![Montagem](images/Montagem.jpg)
 
 ### Requerimentos para o projeto
@@ -61,9 +60,9 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 
 
 
-## Funções Implementadas 
+#Funções Implementadas com bibliotecas
 
-### `MPU6050`
+## `MPU6050`
 
 ![MPU](images/MPU2.jpg)
 
@@ -143,7 +142,7 @@ Calcula um ângulo suavizado com base em leituras de sensores e um filtro de Kal
 **Por que é feito**:\
 Reduz ruídos nas medições de ângulos, garantindo maior precisão nos cálculos de orientação.
 
-### `BMP280`
+## `BMP280`
 
 ![BMP](images/Imagem3.jpeg)
 
@@ -194,7 +193,7 @@ Lê os dados de temperatura, pressão, umidade (opcional) e altitude calculada.
 **Por que é feito**:\
 Fornece dados ambientais precisos para análise em tempo real.
 
-### Display OLED HS96L03W2C03
+## Display OLED HS96L03W2C03
 
 ### `uint8_t SSD1306_Init(void)`
 
@@ -272,7 +271,7 @@ Inicia a rolagem horizontal para a direita em linhas específicas.
 **Por que é feito**:\
 Permite criar efeitos visuais ou destacar informações na tela.
 
-# Funções Implementadas no `main.c`
+# Funções Implementadas no main.c
 
 ### `void modules_init(void)`
 
@@ -338,18 +337,18 @@ Ajusta a intensidade do buzzer proporcionalmente à distância medida pelo HCSR0
 **Por que é feito**:\
 Alerta o usuário de objetos próximos com intensidade variável.
 
-## Esquemático
+# Esquemático
 ![Esquemático](images/Esquematico.png)
 
-## Instruções
+# Instruções
 Ao iniciar o projeto, o display exibirá os dados do sensor BMP280, como mostrado na imagem de referência. Para visualizar as informações do sensor MPU6050, pressione o botão 1, conectado à porta PA1. O display será atualizado para exibir os novos dados, permitindo que você observe, em tempo real, as alterações nos valores do giroscópio e acelerômetro ao movimentar o projeto.
 
 O potenciômetro e o servo motor trabalham em conjunto com o BMP280. O potenciômetro pode ser usado para ajustar a temperatura da cabine, enquanto o servo motor é responsável por simular a pressurização. Para efeitos de simulação, o botão conectado à porta PA4 reduz a pressão lida pelo BMP280, acionando o servo motor para pressurizar a cabine proporcionalmente à nova condição.
 
-## Video Demonstrativo
+# Video Demonstrativo
 [![VideoYT](https://img.youtube.com/vi/U5_P-1-gJD8/0.jpg)](https://www.youtube.com/watch?v=U5_P-1-gJD8)
 
-## Conclusão
+# Conclusão
 
 O projeto de integração de sensores e controle de dispositivos para simulação de uma cabine de avião foi uma experiência enriquecedora. A conexão e configuração de dispositivos como o MPU6050, BMP280, HCSR04, servo motor, buzzer e display OLED exigiram atenção aos detalhes e uma abordagem cuidadosa para garantir a interação eficiente entre eles.
 
@@ -358,7 +357,7 @@ Apesar dos obstáculos encontrados ao longo do desenvolvimento, a implementaçã
 Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de tecnologias embarcadas e sua relevância em simulações e sistemas críticos, como os encontrados na aviação.
 
 
-## Fontes
+# Fontes
 
 - [Ciastkolog](https://github.com/ciastkolog/BMP280_STM32) BMP280
 - [Bulanov Konstantin](https://github.com/leech001/MPU6050) MPU6050
