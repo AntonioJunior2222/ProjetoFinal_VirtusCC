@@ -29,6 +29,9 @@ Complementarmente, o projeto integra um display OLED para exibição das informa
 - **BMP280 (I2C)**
   - SDA - GPIO PIN PB9
   - SCL - GPIO PIN PB8
+- **Display Oled HS96L03W2C03 (I2C)**
+  - SDA - GPIO PIN PB9
+  - SCL - GPIO PIN PB8
 - **Ultrassônico HCSR04**
   - TRIG - GPIO PIN PA6
   - ECHO - GPIO PIN PA7
