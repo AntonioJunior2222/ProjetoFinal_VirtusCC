@@ -195,6 +195,8 @@ Fornece dados ambientais precisos para análise em tempo real.
 
 ## Display OLED HS96L03W2C03
 
+![Display](./images/MPU.jpeg)
+
 ### `uint8_t SSD1306_Init(void)`
 
 **Descrição**:\
