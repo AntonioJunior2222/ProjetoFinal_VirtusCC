@@ -315,14 +315,6 @@ Ajusta a intensidade do buzzer proporcionalmente à distância medida pelo HCSR0
 **Por que é feito**:\
 Alerta o usuário de objetos próximos com intensidade variável.
 
-## Conclusão
-
-O projeto de integração de sensores e controle de dispositivos para simulação de uma cabine de avião foi uma experiência enriquecedora. A conexão e configuração de dispositivos como o MPU6050, BMP280, HCSR04, servo motor, buzzer e display OLED exigiram atenção aos detalhes e uma abordagem cuidadosa para garantir a interação eficiente entre eles.
-
-Apesar dos obstáculos encontrados ao longo do desenvolvimento, a implementação do sistema foi bastante satisfatória. Ver os componentes funcionando de maneira integrada, proporcionando uma experiência imersiva de monitoramento de voo, comprovou a eficácia da abordagem adotada. O projeto não só solidificou o conhecimento sobre sistemas embarcados, mas também destacou a importância da precisão na integração de sensores em sistemas complexos e funcionais.
-
-Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de tecnologias embarcadas e sua relevância em simulações e sistemas críticos, como os encontrados na aviação.
-
 ## Esquemático
 ![Esquemático](images/Esquematico.png)
 
@@ -330,6 +322,17 @@ Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de 
 Ao iniciar o projeto, o display exibirá os dados do sensor BMP280, como mostrado na imagem de referência. Para visualizar as informações do sensor MPU6050, pressione o botão 1, conectado à porta PA1. O display será atualizado para exibir os novos dados, permitindo que você observe, em tempo real, as alterações nos valores do giroscópio e acelerômetro ao movimentar o projeto.
 
 O potenciômetro e o servo motor trabalham em conjunto com o BMP280. O potenciômetro pode ser usado para ajustar a temperatura da cabine, enquanto o servo motor é responsável por simular a pressurização. Para efeitos de simulação, o botão conectado à porta PA4 reduz a pressão lida pelo BMP280, acionando o servo motor para pressurizar a cabine proporcionalmente à nova condição.
+
+## Video Demonstrativo
+A adicionar.
+
+## Conclusão
+
+O projeto de integração de sensores e controle de dispositivos para simulação de uma cabine de avião foi uma experiência enriquecedora. A conexão e configuração de dispositivos como o MPU6050, BMP280, HCSR04, servo motor, buzzer e display OLED exigiram atenção aos detalhes e uma abordagem cuidadosa para garantir a interação eficiente entre eles.
+
+Apesar dos obstáculos encontrados ao longo do desenvolvimento, a implementação do sistema foi bastante satisfatória. Ver os componentes funcionando de maneira integrada, proporcionando uma experiência imersiva de monitoramento de voo, comprovou a eficácia da abordagem adotada. O projeto não só solidificou o conhecimento sobre sistemas embarcados, mas também destacou a importância da precisão na integração de sensores em sistemas complexos e funcionais.
+
+Em resumo, o desenvolvimento deste projeto demonstrou a aplicação prática de tecnologias embarcadas e sua relevância em simulações e sistemas críticos, como os encontrados na aviação.
 
 ## Autores
 
